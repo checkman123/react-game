@@ -10,18 +10,6 @@ export const playerStats = {
   magicDefense: 30,
 };
 
-export const opponentStats = {
-  level: 44,
-  name: "Meowth",
-  maxHealth: 188,
-  img: "/assets/meowth.png",
-
-  magic: 50,
-  attack: 32,
-  defense: 20,
-  magicDefense: 48,
-};
-
 const randomNum = (min, max) => {
   //Returns a random integer from 0 to 100:
   //Math.floor(Math.random() * 101);
