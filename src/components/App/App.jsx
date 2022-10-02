@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { StartMenu, BattleScreen } from "../../components";
-import { randomOpponent, playerStats } from "../../shared/characters";
+import { randomOpponent, playerStats } from "../../shared";
 import styles from "./styles.module.css";
 
 export const App = () => {
