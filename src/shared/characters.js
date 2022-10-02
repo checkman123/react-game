@@ -9,6 +9,11 @@ export const playerStats = {
   attack: 50,
   defense: 30,
   magicDefense: 30,
+  INT: 32,
+  STR: 50,
+  DEF: 30,
+  MDEF: 30,
+  AGI: 22,
 };
 
 const randomNum = (min, max) => {
@@ -36,6 +41,11 @@ const opponents = [
     attack: 32,
     defense: 20,
     magicDefense: 48,
+    INT: 32,
+    STR: 50,
+    DEF: 30,
+    MDEF: 30,
+    AGI: 22,
   },
   {
     level: 555,
@@ -48,5 +58,10 @@ const opponents = [
     attack: 60,
     defense: 100,
     magicDefense: 20,
+    INT: 32,
+    STR: 50,
+    DEF: 30,
+    MDEF: 30,
+    AGI: 22,
   },
 ];
