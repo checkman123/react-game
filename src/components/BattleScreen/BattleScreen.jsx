@@ -1,12 +1,14 @@
 import React, { useState } from "react";
-import { BattleMenu } from "../../components";
+import { BattleMenu } from "./BattleMenu";
 import { playerStats } from "../../shared/characters";
 import { PlayerSummary } from "../Character";
 import styles from "./styles.module.css";
+import { BattleAnnouncer } from "./BattleAnnouncer";
 
 export const BattleScreen = ({ label, player, opponent }) => {
   //get a random opponent
   //const opponent = randomOpponent();
+  const [announcerMessage, setAnnouncerMessage] = useState(null);
 
   return (
     <div className={styles.container__menu}>
@@ -33,20 +35,28 @@ export const BattleScreen = ({ label, player, opponent }) => {
       <div className={styles.player}>
         <div className={styles.summary}>
           <PlayerSummary player={true} character={player} />
-          <div className={styles.hud}>
-            <div className={styles.hudChild}>
-              <BattleMenu
-                onAttack={() => {
-                  console.log("atk");
-                }}
-                onMagic={() => {
-                  console.log("magic");
-                }}
-                onHeal={() => {
-                  console.log("heal");
-                }}
-              />
-            </div>
+        </div>
+        <div className={styles.hud}>
+          <div className={styles.hudChild}>
+            <BattleAnnouncer
+              message={announcerMessage || `What will ${player.name} do?`}
+            />
+          </div>
+          <div className={styles.hudChild}>
+            <BattleMenu
+              onAttack={() => {
+                console.log("atk");
+              }}
+              onMagic={() => {
+                console.log("magic");
+              }}
+              onHeal={() => {
+                console.log("heal");
+              }}
+              onRun={() => {
+                console.log("run");
+              }}
+            />
           </div>
         </div>
       </div>

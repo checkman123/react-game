@@ -14,19 +14,19 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  padding: 10px;
   box-sizing: border-box;
   height: 100%;
+  padding: 15px;
 }
 .hud {
     display: flex;
-    align-items: center;
     justify-content: space-evenly;
-    width: 100%;
+    width: 100%; 
+    gap: 10px;
 }
 .hudChild {
   flex: 1;
-  height: 100%;
+  min-height: 100%;
 }
 .gameHeader {
   font-size: 48px;

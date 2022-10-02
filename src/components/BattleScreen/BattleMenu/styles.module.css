@@ -3,12 +3,14 @@
     justify-content: space-evenly;
     border-radius: 10px;
     height: 100%;
+    width: 100%;
     gap: 10px;
-    padding-left: 10px;
+    flex-wrap: wrap;
   }
 
   .option {
     display: flex;
+    flex: 1 0 35%;
     align-items: center;
     justify-content: center;
 
