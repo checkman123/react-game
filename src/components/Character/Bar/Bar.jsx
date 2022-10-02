@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./styles.module.css";
 
-export const HealthBar = ({ label, maxValue, value }) => {
+export const Bar = ({ label, maxValue, value }) => {
   return (
     <div className={styles.main}>
       <div className={styles.label}>{label}</div>

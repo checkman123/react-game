@@ -1,6 +1,7 @@
 export const playerStats = {
   level: 44,
   maxHealth: 177,
+  health: 177,
   name: "Pika",
   img: "/assets/pikachu.png",
 
@@ -28,6 +29,7 @@ const opponents = [
     level: 44,
     name: "Meowth",
     maxHealth: 188,
+    health: 188,
     img: "/assets/meowth.png",
 
     magic: 50,
@@ -39,6 +41,7 @@ const opponents = [
     level: 555,
     name: "Snorlax",
     maxHealth: 300,
+    health: 300,
     img: "/assets/snorlax.png",
 
     magic: 20,

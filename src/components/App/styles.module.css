@@ -3,7 +3,9 @@
   justify-content: space-between;
   align-items: center;
   flex-direction: column;
-  width: 100vw;
-  height: 100vh;
+  max-width: 100%;
+  min-height: 100%;
   background-color: rgb(35, 35, 35);
+  padding-bottom: 30px;
 }
+

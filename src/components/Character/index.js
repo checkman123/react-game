@@ -1,2 +1,2 @@
 export * from "./PlayerSummary";
-export * from "./HealthBar";
+export * from "./Bar";

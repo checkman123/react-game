@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./styles.module.css";
 
-export const BattleMenu = ({ onAttack, onMagic, onHeal }) => {
+export const BattleMenu = ({ onAttack, onMagic, onHeal, onRun }) => {
   return (
     <div className={styles.main}>
       <div className={styles.option} onClick={onAttack}>
@@ -12,6 +12,9 @@ export const BattleMenu = ({ onAttack, onMagic, onHeal }) => {
       </div>
       <div className={styles.option} onClick={onHeal}>
         Heal
+      </div>
+      <div className={styles.option} onClick={onRun}>
+        Run
       </div>
     </div>
   );
