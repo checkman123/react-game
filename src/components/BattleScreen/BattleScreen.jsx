@@ -1,14 +1,35 @@
-import React, { useState } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { BattleMenu } from "./BattleMenu";
-import { playerStats } from "../../shared/characters";
 import { PlayerSummary } from "../Character";
 import styles from "./styles.module.css";
 import { BattleAnnouncer } from "./BattleAnnouncer";
+import { CharacterContext } from "../../Contexts";
+import { useAIOpponents, useBattleSequence } from "../../hooks";
 
-export const BattleScreen = ({ label, player, opponent }) => {
-  //get a random opponent
-  //const opponent = randomOpponent();
-  const [announcerMessage, setAnnouncerMessage] = useState(null);
+export const BattleScreen = () => {
+  //grab the character from the context store
+  const { characters, setCharacters } = useContext(CharacterContext);
+
+  const [sequence, setSequence] = useState({});
+
+  const {
+    turn,
+    inSequence,
+    playerAnimation,
+    opponentAnimation,
+    announcerMessage,
+  } = useBattleSequence(sequence);
+
+  const aiChoice = useAIOpponents(turn);
+
+  useEffect(() => {
+    if (aiChoice && turn === 1 && !inSequence) {
+      setSequence({ turn, mode: aiChoice });
+    }
+  }, [turn, aiChoice, inSequence]);
+
+  let player = characters.player;
+  let opponent = characters.opponent;
 
   return (
     <div className={styles.container__menu}>
@@ -23,12 +44,16 @@ export const BattleScreen = ({ label, player, opponent }) => {
           <img
             alt={opponent.name}
             src={opponent.img}
-            className={styles.images}
+            className={`${styles.images} ${styles[opponentAnimation]}`}
           />
         </div>
 
         <div className={styles.playerSprite}>
-          <img alt={player.name} src={player.img} className={styles.images} />
+          <img
+            alt={player.name}
+            src={player.img}
+            className={`${styles.images} ${styles[playerAnimation]}`}
+          />
         </div>
       </div>
 
@@ -45,16 +70,16 @@ export const BattleScreen = ({ label, player, opponent }) => {
           <div className={styles.hudChild}>
             <BattleMenu
               onAttack={() => {
-                console.log("atk");
+                setSequence({ turn, mode: "attack" });
               }}
               onMagic={() => {
-                console.log("magic");
+                setSequence({ turn, mode: "magic" });
               }}
               onHeal={() => {
-                console.log("heal");
+                setSequence({ turn, mode: "heal" });
               }}
               onRun={() => {
-                console.log("run");
+                setSequence({ turn, mode: "run" });
               }}
             />
           </div>

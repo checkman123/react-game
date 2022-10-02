@@ -1,5 +1,4 @@
 import React from "react";
-import { Bar } from "../Bar";
 import styles from "./styles.module.css";
 
 const red = "#821200";

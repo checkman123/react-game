@@ -22,7 +22,7 @@ export const App = () => {
         break;
     }
   };
-
+  console.log(characters);
   return (
     <div className={styles.container}>
       <CharacterContext.Provider
